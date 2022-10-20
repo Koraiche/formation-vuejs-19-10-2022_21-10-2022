@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hello World</title>
+  <script src="https://unpkg.com/vue@2.6"></script>
+</head>
+<body>
+  <div id="app">
+    <input type="text" v-on:input="updateMessage($event)" />
+    {{ message }} <!--INTERPOLATION-->
+    <a  v-bind:href="link">Google</a><!--DIRECTIVES : permet  de attacher la valeur dune instance vue à un attribut html-->
+    
+    <p v-once>{{title}}</p>
+    <p>{{sayHello()}}</p>
+  </div>
+  
+
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+        message: 'Hello World!',
+        link: 'https://google.com',
+        title: 'Hello Vue??'
+      },
+      methods:{
+        updateMessage: function(event){
+          this.message= event.target.value;
+        },
+        sayHello: function(){
+            this.title = "HELLO";
+            return this.title
+        }
+      }
+    })
+  </script>
+</body>
+</html>

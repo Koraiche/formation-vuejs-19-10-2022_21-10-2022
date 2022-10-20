@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Exercice</title>
+    <script src="https://unpkg.com/vue@2.6"></script>
+</head>
+<body>
+
+<div id="app">
+    <ul>
+        <li v-for="(ing, i) in ingredients">Number {{i}} : {{ ing }}</li>
+    </ul>
+</div>
+
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            ingredients: [ 'viande', 'ail', 'tomates', 'pommes de terre'],
+            personnes: [{ nom: 'Ahmed', age: 30, couleur: 'noir'},
+                        { nom: 'Aicha', age: 20, couleur: 'blanc'}]
+        }
+    });
+</script>
+</body>
+</html>

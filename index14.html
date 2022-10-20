@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Exercice</title>
+    <script src="https://unpkg.com/vue@2.6"></script>
+	<style>
+        #effect {
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+        }
+
+        .highlight {
+            background-color: red;
+            width: 200px !important;
+        }
+
+        .shrink {
+            background-color: gray;
+            width: 50px !important;
+        }
+    </style>
+</head>
+
+<div id="exercise">
+    <!-- 1) Associer le bouton pour afficher un des deux paragraphes. Utiliser v-if et v-show et inspecter les éléments pour voir la différence -->
+    <div>
+        <button @click="toggleButton = ! toggleButton">Toggle</button>
+        <p v-if="toggleButton">You either see me ...</p>
+        <p v-else>...or me</p>
+        <p v-show="toggleButton">You either see me ...</p>
+        <p v-show="!toggleButton">...or me</p>
+    </div>
+    <!-- 2) Afficher un <ul> d'éléments d'un tableau de votre choix. Imprimer l'indexe de chaque élément. -->
+    <ul>
+        <li v-for="(value, key) in array" :key="key">{{value}}</li>
+    </ul>
+    <!-- 3) Afficher toutes les pairs key-value de l'objet suivant : {title: 'Lord of the Rings', author: 'J.R.R. Tolkiens', books: '3'}. Imprimer l'index de chaque item. -->
+    <ul>
+        <li v-for="(value, propertyName) in {title: 'Lord of the Rings', author: 'J.R.R. Tolkiens', books: '3'}" :key="key">{{propertyName}} : {{value}}</li>
+    </ul>
+    <!-- 4) Afficher l'objet suivant (uniquement les valeurs) et aussi créer une boucle pour le tableau : {name: 'TESTOBJECT', data: [1.67, 1.33, 0.98, 2.21]} (hint: Utiliser v-for et v-if pour faire ça) -->
+    <ul>
+        <li v-for="(value, propertyName) in {name: 'TESTOBJECT', data: [1.67, 1.33, 0.98, 2.21]}" :key="key">
+            <p v-if="typeof(value)== 'object'">
+                <span>{{propertyName}}</span>
+                <span v-for="v in value">{{v}}</span>
+            </p>
+            <p v-else>
+                {{propertyName}} : {{value}}
+            </p>
+            
+        
+        </li>
+
+    </ul>
+</div>
+
+
+
+<script>
+    new Vue({
+        el: '#exercise',
+        data: {
+            toggleButton: true,
+            array: ['Max', 'Anna', 'Chris', 'Manu'],
+            myObject: {
+                title: 'Lord of the Rings',
+                author: 'J.R.R. Tolkiens',
+                books: '3'
+            },
+            testData: {
+                name: 'TESTOBJECT',
+                id: 10,
+                data: [1.67, 1.33, 0.98, 2.21]
+            }
+        }
+    });
+</script>
+</body>
+</html>

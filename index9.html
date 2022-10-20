@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello World</title>
+    <script src="https://unpkg.com/vue@2.6"></script>
+    <style>
+        .demo{
+            height: 100px;
+        }
+        .red{
+            background-color: red;
+        }
+        .green{
+            background-color: green;
+        }
+        .blue{
+            background-color: blue;
+        }
+        .yellow{
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+
+<div id="exercise">
+    <div class="demo" @click="attachedRed = !attachedRed" :class="divClasses">hello world</div>
+    <div class="demo"></div>
+    <div class="demo"></div>
+</div>
+
+<script>
+    new Vue({
+        el: '#exercise',
+        data: {
+            attachedRed: true,
+            divClasses : ''
+        },
+        watch:{
+            attachedRed(){
+                if(this.attachedRed){
+                    this.divClasses = {red : this.attachedRed};
+                }
+                else{
+                    this.divClasses = ''
+                }
+                
+            }
+        }
+    });
+</script>
+</body>
+</html>
+

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello World</title>
+    <script src="https://unpkg.com/vue@2.6"></script>
+</head>
+<body>
+
+<div id="exercise">
+    <div>
+        <button v-on:click="increase">Increase++</button>
+        <p>{{result}}</p>
+    </div>
+</div>
+
+<script>
+    new Vue({
+        el: '#exercise',
+        data: {
+            counter:0,
+        },
+        computed:{
+            result: function(){
+                if(this.counter==0){
+                    return 'Still 0';
+                }
+                return 'increased to ' + this.counter;
+            }
+        },
+        methods:{
+            increase(){
+                this.counter++;
+            }
+        }
+    });
+</script>
+</body>
+</html>

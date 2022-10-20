@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Exercice</title>
+    <script src="https://unpkg.com/vue@2.6"></script>
+</head>
+
+<div id="app">
+    
+</div>
+
+
+
+<script>
+    var app1 =  new Vue({
+        el: '#app',
+        data: {
+        },
+        beforeCreate(){
+            console.log("before created");
+            console.log(this);
+        },
+        beforeMount(){
+            console.log("before mount");
+            console.log(this);
+        },
+        mounted(){
+            console.log("mounted");
+            console.log(this);
+        },
+        created(){
+            console.log("created");
+            console.log(this);
+        }
+    });
+    
+</script>
+</body>
+</html>

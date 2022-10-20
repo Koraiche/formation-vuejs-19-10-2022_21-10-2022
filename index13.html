@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Exercice</title>
+    <script src="https://unpkg.com/vue@2.6"></script>
+</head>
+<body>
+
+<div id="app">
+    
+    <table border="solid 1px">
+        <tr>
+            <th>nom</th>
+            <th>age</th>
+            <th>couleur</th>
+        </tr>
+        <tr v-for="(value, key) in personnes" :key="key">
+                <td>{{value.nom}}</td>
+                <td>{{value.age}}</td>
+                <td>{{value.couleur}}</td>
+        </tr>
+
+    </table>
+</div>
+
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            personnes: [{ nom: 'Ahmed', age: 30, couleur: 'noir'},
+                        { nom: 'Aicha', age: 20, couleur: 'blanc'}]
+        }
+    });
+</script>
+</body>
+</html>

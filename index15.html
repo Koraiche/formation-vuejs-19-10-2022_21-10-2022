@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Exercice</title>
+    <script src="https://unpkg.com/vue@2.6"></script>
+</head>
+
+<div id="app1">
+    {{firstVueInstance}}
+    {{externalVueInstance}}
+</div>
+<div id="app2">
+    {{secondVueInstance}}
+</div>
+
+
+
+<script>
+    var app2 = new Vue({
+        el: '#app2',
+        data: {
+            secondVueInstance: "SECOND"
+        }
+    });
+    var app1 =  new Vue({
+        el: '#app1',
+        data: {
+            firstVueInstance: "FIRST",
+            externalVueInstance : app2.secondVueInstance
+        }
+    });
+    
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hello World</title>
+  <script src="https://unpkg.com/vue@2.6"></script>
+</head>
+<body>
+  <div id="app">
+    <button v-on:click="increaseCounter($event, 2)">COUNTER++</button>
+    <p>{{counter}}</p>
+    <p v-on:mousemove="updateCoordinates">{{x}} / {{y}} </p>
+  </div>
+  
+
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+        counter:0,
+        x:0,
+        y:0
+      },
+      methods:{
+        increaseCounter: function(event, step){
+           this.counter+=step;
+        },
+        updateCoordinates: function(event){
+            this.x = event.clientX;
+            this.y = event.clientY;
+        }
+      }
+    })
+  </script>
+</body>
+</html>
